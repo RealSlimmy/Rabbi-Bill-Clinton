@@ -23,3 +23,46 @@ campaignTrail_temp.player_answers = [];
 campaignTrail_temp.player_visits = [];
 campaignTrail_temp.answer_feedback_flg = 1;
 campaignTrail_temp.game_start_logging_id = '3665990';
+
+campaignTrail_temp.multiple_endings = true;
+endingPicker = (out, totv, aa, quickstats) => {
+
+    function setImage(url) {
+        if(url == '' || url == null) return;
+        let interval = setInterval(function () {
+            img = document.getElementsByClassName("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png")[0];
+            if (img != null) {
+                img.src = url;
+                clearInterval(interval);
+            }
+        }, 50);
+    }
+        if (quickstats[0] >= 270) { 
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>The New World Order</h3><div style='overflow-y:scroll;height:14em;font-size:1em;'><p style='margin-top:0em;'>
+
+October 24th, 1955
+<br></br>
+The United Nations Headquarters shines in the Manhattan afternoon, a monolith of the triumphs of the human collective. Inside, the many delegates of the nations of the world sit in waiting; There is a guest speaker at the United Nations.
+<br></br>
+Vice President Harold Stassen walks to the podium at the front of the assembly, a sense of pride emanating from each footstep, his smile also radiating with pride. Mr. Stassen has been preparing for this moment for a few months; he gathers his papers and begins his speech:
+<br></br>
+“Today marks the tenth anniversary of the founding of the United Nations, and the world has never been more at peace. Despite the Cold War being at the forefront of every diplomacy minded individual, we are more united than ever, as both a planet and as a brotherhood of man.”
+<br></br>
+“I remember being a small part of the founding of the United Nations. When I signed that charter, I knew that this organization would pave the way for things to come, much greater than any works of the past. Entire wars have been prevented here, human rights are more defined, and we are beginning an era of technological innovations unusually advanced, compared to those of the polarized violent world of before.”
+<br></br>
+“And so, as we sit here and continue the good work that is peace, I am here to remind you all of the thanks that President Disney gives you, and that perhaps years in the future, you could call the United States your national brother. Thank you and God Bless!”
+<br></br>
+Stassen exited the United Nations building, with not a drop of pride lost. He’s still got it.`;
+    } else if (quickstats[0] < 269) { // if you lost
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>Aw Shucks! You lost the election.</h3>
+
+        Well shit, that could've gone better. Despite your optimism and plans for America, your opponent got the better of you in the race. Perhaps your inexperience and status as a cartoonist left the public uneasy; perhaps it was your antisemitism and sheltered views on racism that angered liberals. You may never know, and why does it matter? After all, you can just go back to doing what you love: making cartoons. But perhaps a part of you looks back at this election, and ponders on what could have been...`;
+    } else if (quickstats[0] === 269) { // if you deadlocked
+        setImage("https://imgur.com/ru6sFey.jpeg");
+        return `<h3>We are experiencing some technical difficulties. Please stand by.</h3>
+
+        That's odd. It seems that neither you nor your opponent got an electoral win, meaning its up to Congress to decide the winner. Luckily, there's a GOP majority in town, meaning you'll be certified by the beginning of 1953. Despite the small turnout, you still managed to win. Good job bud.`;
+    }
+}
