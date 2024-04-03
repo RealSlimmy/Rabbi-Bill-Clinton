@@ -1,0 +1,41 @@
+campaignTrail_temp.multiple_endings = true;
+endingPicker = (out, totv, aa, quickstats) => {
+
+    function setImage(url) {
+        if(url == '' || url == null) return;
+        let interval = setInterval(function () {
+            img = document.getElementsByClassName("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png")[0];
+            if (img != null) {
+                img.src = url;
+                clearInterval(interval);
+            }
+        }, 50);
+    }
+        if (quickstats[0] >= 270) { 
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>Another Drink Please</h3><div style='overflow-y:scroll;height:14em;font-size:1em;'><p style='margin-top:0em;'>
+
+<br></br>
+“For Christ’s sake Knowland, you have to TELL me about this kind of stuff!” Disney proclaimed exasperatedly. He knew Knowland didn’t care: he’d been down in the senate for months, whipping bills like he was in charge of the place, without Disney’s authorization. Knowland’s separate agenda (along with the multiple vein bulging shouting matches between the two) was pushing Disney over the brink with stress, and he found his usual glass of scotch had tripled since assuming office. Sure, Knowland was great at first when it was Disney’s ideas being passed, but the former Senator had gone too far long ago, but there wasn’t much to do about it.
+<br></br>
+“Knowland, I can’t keep signing bills with no input, I’m part of this party-”
+<br></br>
+“No Mr. President, I don’t think you are.” Shot Knowland. “You joined us what, two years ago? With no political experience, ask me to betray MY FRIEND, and then, after he’s put in the Supreme Court, bullshit about his rulings? Face it Disney, what respect I had for you has been gone, and the fact that you keep trying to give input on what’s good for the party while you sit here and rock with the waves of misery instead of facing them head on, while having tantrums and calling them ‘putting your foot down’ proves how little you understand-”
+<br></br>
+“YOU WANT ME TO PUT MY FOOT DOWN?! ILL PUT IT DOWN! THE NEXT BILL YOU PUSH THROUGH WITHOUT PRIOR APPROVAL WILL BE YOUR LAST IF YOU DONT NOTIFY ME DAMN IT!” Screamed Disney. The two giants were stunned for a moment, until Disney’s eyes caught Knowlands: they were like the eyes of a lion tamer, cool, confident, and ruthless. Disney knew he had lost this battle: He couldn't get rid of Knowland, he'd be torn apart by the press AND his party. At this point, he just hoped that Knowland could do good enough of a job without giving him a reason to drink more than he already was; after all, his health was beginning to subside. “Fine” DIsney said, as he sank defeated in his chair. “You win, just… for Christ's sake let me know what I’m signing before I do.”
+<br></br>
+Knowland nodded firmly at Disney, with a new sense of authority. “Thank you Mr. President, I’m happy to help.” After his departure from the Oval Office, Disney poured himself another glass of booze. He examined his reflection in the glass- was he ever truly President?
+<br></br>
+He took another swig. Bitter.`;
+    } else if (quickstats[0] < 269) { // if you lost
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>Aw Shucks! You lost the election.</h3>
+
+        Well shit, that could've gone better. Despite your optimism and plans for America, your opponent got the better of you in the race. Perhaps your inexperience and status as a cartoonist left the public uneasy; perhaps it was your antisemitism and sheltered views on racism that angered liberals. You may never know, and why does it matter? After all, you can just go back to doing what you love: making cartoons. But perhaps a part of you looks back at this election, and ponders on what could have been...`;
+    } else if (quickstats[0] === 269) { // if you deadlocked
+        setImage("https://imgur.com/ru6sFey.jpeg");
+        return `<h3>We are experiencing some technical difficulties. Please stand by.</h3>
+
+        That's odd. It seems that neither you nor your opponent got an electoral win, meaning its up to Congress to decide the winner. Luckily, there's a GOP majority in town, meaning you'll be certified by the beginning of 1953. Despite the small turnout, you still managed to win. Good job bud.`;
+    }
+}
