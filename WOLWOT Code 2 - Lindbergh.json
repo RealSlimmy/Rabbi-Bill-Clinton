@@ -23,3 +23,67 @@ campaignTrail_temp.player_answers = [];
 campaignTrail_temp.player_visits = [];
 campaignTrail_temp.answer_feedback_flg = 1;
 campaignTrail_temp.game_start_logging_id = '3665990';
+
+campaignTrail_temp.multiple_endings = true;
+endingPicker = (out, totv, aa, quickstats) => {
+
+    function setImage(url) {
+        if(url == '' || url == null) return;
+        let interval = setInterval(function () {
+            img = document.getElementsByClassName("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png")[0];
+            if (img != null) {
+                img.src = url;
+                clearInterval(interval);
+            }
+        }, 50);
+    }
+        if (quickstats[0] >= 270) { 
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>Lindbergh Resigns!</h3><div style='overflow-y:scroll;height:14em;font-size:1em;'><p style='margin-top:0em;'>
+
+<br></br>
+“My fellow Americans, it has come to my attention that my time here as Vice President of the United States is generally an unpopular affair, and after a year’s worth of consideration, I have decided to resign from the office of the Vice President. This decision was not easy, but prior to my resignation, I would like to clarify many things said about me, including rumors, slander, and hearsay.”
+<br></br>
+“Firstly, I have not, nor have I ever, been a second power behind the Disney Presidency. I had no input whatsoever in the refusal of the Disney Administration to send the National Guard to Little Rock Arkansas, as well as multiple other events and decisions blamed upon me. I have been a steadfast and loyal companion to President Disney, and would never dream of influencing his decisions.”
+<br></br>
+“Secondly, I am not a secret believer in National Socialism. Many of my prior views and statements on groups such as Jews, Blacks, and other minorities have been blown out of proportion, taken out of context, or are outdated compared to my current beliefs. I have never tried to promote antisemitic laws or bills in Congress, the Senate, or the Oval Office. Any photos of me meeting with prominent German officials in the 1930s are additionally taken out of context, and are being used to slander my name.”
+<br></br>
+“Lastly, I have not been taking bribes from any organizations, advocacy groups, lobbies, corporations, or arms manufacturers in order to press an agenda of militarism and arms buildup.”
+<br></br>
+“Despite my opinions on much of what has been levied against me, I have found it to be the highest honor to serve you as Vice President. I thank all of you for your vote of confidence, and I wish Speaker Martin the best of luck as the New Vice President.”
+<br></br>
+“Thank you, may God bless you all.”`;
+    } else if (quickstats[0] < 269) { // if you lost
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>Spirit of St. Louis</h3><div style='overflow-y:scroll;height:14em;font-size:1em;'><p style='margin-top:0em;'>
+
+        <br></br>
+        The summer of 54 was a hot one, especially in St. Louis. Everywhere, tourists and visitors were struggling to keep cool in the Missouri heat… But not Disney and Lindbergh. Missouri natives, the two knew exactly what to do in the heat: get a cone of ice cream. And so, the two former candidates for the Republican 1952 ticket ate vanilla and chocolate ice cream, happily biting and licking away at the sweet treat.
+        <br></br>
+        “I’m not sure why we never visited here.” Disney said, cheerfully taking bites of his scoops. “Hell, we were both from Missouri, we should have come home for a visit.”
+        <br></br>
+        “I’m actually not from Missouri.” Lindbergh said in between spoonfuls of chocolate. “I was born and raised in Minnesota, but I moved here when I was a young man.”
+        <br></br>
+        “Then why didn’t we visit Minnesota? That would have been grand as well-”
+        <br></br>
+        “Walt, they might have run us out on a rail.”
+        <br></br>
+        “...True.”
+        A long, awkward pause echoed, until Lindbergh stilled its verberation.
+        <br></br>
+        “Let me ask you something: Do you regret running for President, Walt?”
+        <br></br>
+        “Well… as much as I would be honored to have sat in the Oval Office, I don’t think it would have been where I belong. I’m a dreamer, and the role of the President sort of… kills anything outside of it, especially dreams. Frankly, both of us would have been killed by our roles, you’re just as much of a dreamer as I am, Charles. Our roles in society are to lift others in spirits and hopes, to fill their hearts with happiness. I’d go so far as to say ultimately, that’s why we lost.”
+        <br></br>
+        “I can see that.” Lindbergh said, eating the vanilla ice cream in contemplation. Another long pause.
+        <br></br>
+        “...Well it was mostly because they leaked photos of you meeting with Hermann Goring and other Nazi officials.”
+        <br></br>
+        “... Yep, that too.”`;
+    } else if (quickstats[0] === 269) { // if you deadlocked
+        setImage("https://imgur.com/ru6sFey.jpeg");
+        return `<h3>We are experiencing some technical difficulties. Please stand by.</h3>
+
+        That's odd. It seems that neither you nor your opponent got an electoral win, meaning its up to Congress to decide the winner. Luckily, there's a GOP majority in town, meaning you'll be certified by the beginning of 1953. Despite the small turnout, you still managed to win. Good job bud.`;
+    }
+}
