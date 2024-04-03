@@ -20,7 +20,7 @@ nct_stuff.themes[nct_stuff.selectedTheme].coloring_title = "#141f3c"
 nct_stuff.themes[nct_stuff.selectedTheme].coloring_window = "#a18a4f"
 document.getElementsByClassName("game_header")[0].style.backgroundColor = nct_stuff.themes[nct_stuff.selectedTheme].coloring_title
 $(".container")[0].style.backgroundColor = "#3a5463"
-document.body.background = "https://imgur.com/7yVadjY.jpeg" 
+document.body.background = "https://imgur.com/7j02MAr.jpeg" 
 $("#game_window")[0].style.backgroundImage = "url(https://imgur.com/7r5N74a.jpeg)"
 
 campaignTrail_temp.global_parameter_json = JSON.parse("[{\"model\": \"campaign_trail.global_parameter\", \"pk\": 1, \"fields\": {\"vote_variable\": 1.125, \"max_swing\": 0.12, \"start_point\": 0.94, \"candidate_issue_weight\": 10.0, \"running_mate_issue_weight\": 5.0, \"issue_stance_1_max\": -0.71, \"issue_stance_2_max\": -0.3, \"issue_stance_3_max\": -0.125, \"issue_stance_4_max\": 0.125, \"issue_stance_5_max\": 0.3, \"issue_stance_6_max\": 0.71, \"global_variance\": 0.01, \"state_variance\": 0.005, \"question_count\": 25, \"default_map_color_hex\": \"#C9C9C9\", \"no_state_map_color_hex\": \"#999999\"}}]");
