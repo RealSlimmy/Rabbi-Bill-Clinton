@@ -23,3 +23,91 @@ campaignTrail_temp.player_answers = [];
 campaignTrail_temp.player_visits = [];
 campaignTrail_temp.answer_feedback_flg = 1;
 campaignTrail_temp.game_start_logging_id = '3665990';
+
+campaignTrail_temp.multiple_endings = true;
+endingPicker = (out, totv, aa, quickstats) => {
+
+    function setImage(url) {
+        if(url == '' || url == null) return;
+        let interval = setInterval(function () {
+            img = document.getElementsByClassName("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png")[0];
+            if (img != null) {
+                img.src = url;
+                clearInterval(interval);
+            }
+        }, 50);
+    }
+        if (quickstats[0] >= 270) { 
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>The First Modern Vice President</h3><div style='overflow-y:scroll;height:14em;font-size:1em;'><p style='margin-top:0em;'>
+[Vice President Richard Nixon kept extensive notes during the Disney Presidency, that give us a unique look at what working for president Disney was like firsthand. These neotes are dated sometime around 1954, judging by the mention of the Warren court and of the establishment of the monorails and EPCOT.]
+<br></br>
+<i>To-Do list for Today:</i>
+<br></br>
+<i>1. Get Coffee</i>
+<br></br>
+<i>-Make sure coffee isn’t decaf</i>
+<br></br>
+<i>-Fire intern who forgot to label coffee (maybe check to see if was on purpose? Talk to Hoover on this)</i>
+<br></br>
+<i>2. Meet with Dirksen on EPCOT project</i>
+<br></br>
+<i>-Dirksen is already on board, just in case mention the benefits (come up with benefits beyond “Walt Says so”)</i>
+<br></br>
+<i>-South might go for it, so long as its whites only. Should be easy to choose white town (make sure Disney has final say)</i>
+<br></br>
+<i>3. Press Conference on Racial tensions</i>
+<br></br>
+<i>-Deny opposition to Warren ruling, deny deny deny</i>
+<br></br>
+<i>-Find Jimmy, he’s the goddamn press secretary not me</i>
+<br></br>
+<i>4. Meeting with Roy and Hoover about investigation in Federal employees for communist sympathies</i>
+<br></br>
+<i>-Keep Hoover from committing crimes and keeps Roy too occupied to obstruct anything</i>
+<br></br>
+<i>-As long as those fruits are happy, do what thou wilt</i>
+<br></br>
+<i>5. Lunch with Nasser on potential US-Egypt ties</i>
+<br></br>
+<i>-Something with the miltiary, don’t mention exercises with the Jews</i>
+<br></br>
+<i>-no Nasser = Soviets in Egypt (Roy doesn’t shut up about this)</i>
+<br></br>
+<i>-Where does an Egyptian nationalist eat lunch with a government official? Old Ebbit Grill is nice, but maybe too tacky (You can never tell with these damn Arabs)</i>
+<br></br>
+<i>6. Second meeting with Dirksen for Monorails, potentially discuss concessions</i>
+<br></br>
+<i>-Taft will throw a fit if too expensive, lower the price or slash the budget (One is harder than the other)</i>
+<br></br>
+<i>-Multiple companies interested in contract, but might be too expensive</i>
+<br></br>
+<i>-If they have a demand, accept it if it's not literal child labor. The rails must be built!</i>
+<br></br>
+<i>7. Debrief President Disney</i>
+<br></br>
+<i>-He WILL  be drunk, do not talk about it</i>
+<br></br>
+<i>-If he gets angry, mention the issues solved, should cheer him up</i>
+<br></br>
+<i>-DO NOT mention anything Roy says (not as if that’s possible, Roy WILL tell or has already told Disney)</i>
+<br></br>
+<i>-Make sure to mention Epcot and Monorail, he will not care much about anything else at this point</i>
+<br></br>
+<i>8. Dinner with Pat</i>
+<br></br>
+<i>-Wear the nice new tie you got, she’ll like that</i>
+<br></br>
+<i>-Make sure she is served first in the dinner, don't let them forget it if she isn’t</i>`;
+    } else if (quickstats[0] < 269) { // if you lost
+        setImage("https://cdn.discordapp.com/attachments/1146285215564709978/1193187745330372718/kasich_food.png");
+        return `<h3>Aw Shucks! You lost the election.</h3>
+
+        Well shit, that could've gone better. Despite your optimism and plans for America, your opponent got the better of you in the race. Perhaps your inexperience and status as a cartoonist left the public uneasy; perhaps it was your antisemitism and sheltered views on racism that angered liberals. You may never know, and why does it matter? After all, you can just go back to doing what you love: making cartoons. But perhaps a part of you looks back at this election, and ponders on what could have been...`;
+    } else if (quickstats[0] === 269) { // if you deadlocked
+        setImage("https://imgur.com/ru6sFey.jpeg");
+        return `<h3>We are experiencing some technical difficulties. Please stand by.</h3>
+
+        That's odd. It seems that neither you nor your opponent got an electoral win, meaning its up to Congress to decide the winner. Luckily, there's a GOP majority in town, meaning you'll be certified by the beginning of 1953. Despite the small turnout, you still managed to win. Good job bud.`;
+    }
+}
